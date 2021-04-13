@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace API.Migrations
+namespace API.Data.Migrations
 {
-    public partial class EntendedUserEntity : Migration
+    public partial class ExtendedUserEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
