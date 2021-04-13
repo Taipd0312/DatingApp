@@ -48,7 +48,8 @@ namespace API
             app.UseCors(opt => 
                 opt.AllowAnyHeader()
                 .AllowAnyMethod()
-                .WithOrigins(_config.GetSection("CorsOrigint:Urls").Get<List<string>>().ToArray())
+                //.WithOrigins(_config.GetSection("CorsOrigint:Urls").Get<List<string>>().ToArray())
+                .WithOrigins("https://localhost:4200", "http://localhost:4200")
             );
 
             app.UseAuthentication();
