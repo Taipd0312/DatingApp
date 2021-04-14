@@ -44,7 +44,7 @@
         <tabset class="member-tabset">
             <tab heading='About {{member.knownAs}}'>
                 <form #editForm="ngForm" (ngSubmit)="updateMember()" id="editForm">
-                    <h4>Description</h4>
+                    <h4 class="mt-4">Description</h4>
                     <textarea class="form-control" 
                         [(ngModel)]="member.introduction" 
                         name="introduction" 
@@ -82,7 +82,7 @@
             </tab>
 
             <tab heading='Edit Photos'>
-                <p>Photos edit will go here</p>
+                <p class="mt-4">Photos edit will go here</p>
             </tab>
         </tabset>
     </div>

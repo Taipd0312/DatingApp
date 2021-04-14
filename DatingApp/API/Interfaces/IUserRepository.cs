@@ -12,5 +12,6 @@ namespace API.Interfaces
         Task<IEnumerable<MemberDto>> GetMemberDtosAsync();
         Task<MemberDto> GetMemberDtoAsync(int id);
         Task<MemberDto> GetMemberDtoAsync(string username);
+        Task<AppUser> GetUserByUsernameAsync(string username);
     }
 }
