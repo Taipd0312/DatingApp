@@ -1,23 +1,47 @@
-<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+<form [formGroup]='registerForm' (ngSubmit)="register()" autocomplete="off">
     <h2 class="text-center text-primary">Sign up</h2>
     <hr>
     <div class="form-group">
-        <input type="text" 
+        <input 
+            [class.is-invalid]='registerForm.get("username").errors && 
+            registerForm.get("username").touched' 
+            type="text" 
             class="form-control" 
-            name="Username" 
-            [(ngModel)]="model.username" 
+            formControlName='username' 
             placeholder="Username">
+
+        <div class="invalid-feedback">Please enter your username</div>
+    </div>
+
+    <div class="form-group">
+        <input 
+            type="password" 
+            class="form-control" 
+            formControlName='password' 
+            placeholder="Password">
     </div>
 
     <div class="form-group">
         <input type="password" 
+            [class.is-invalid]='registerForm.get("password").errors && 
+            registerForm.get("password").touched' 
             class="form-control" 
-            name="Password" 
-            [(ngModel)]="model.password" 
-            placeholder="Password">
+            formControlName='confirmPassword' 
+            placeholder="Confirm Password">
+
+        <div *ngIf="registerForm.get('password').hasError('required')" 
+            class="invalid-feedback">Please enter your password</div>
+        <div *ngIf="registerForm.get('password').hasError('minlength')" 
+            class="invalid-feedback">Please enter your password</div>
+        <div *ngIf="registerForm.get('password').hasError('maxlength')" 
+            class="invalid-feedback">Please enter your password</div>
     </div>
+
     <div class="form-group text-center">
         <button class="btn btn-success mr-2" type="submit">Register</button>
         <button class="btn btn-default mr-2" (click)="cancel()" type="button">Cancel</button>
     </div>
 </form>
+
+<p>Form value:{{registerForm.value | json}}</p>
+<p>Form value:{{registerForm.status | json}}</p>
