@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
+using DatingApp.API.Helpers;
 
 namespace API.Interfaces
 {
@@ -9,7 +10,7 @@ namespace API.Interfaces
     {
         void Update(AppUser user);
         Task<bool> SaveAllAsync();
-        Task<IEnumerable<MemberDto>> GetMemberDtosAsync();
+        Task<PagedList<MemberDto>> GetMemberDtosAsync(UserParams userParams);
         Task<MemberDto> GetMemberDtoAsync(int id);
         Task<MemberDto> GetMemberDtoAsync(string username);
         Task<AppUser> GetUserByUsernameAsync(string username);

@@ -6,6 +6,8 @@ using API.Entities;
 using API.Extensions;
 using API.Interfaces;
 using AutoMapper;
+using DatingApp.API.Extensions;
+using DatingApp.API.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,13 +29,13 @@ namespace API.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
+        public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
         {
-            var users = await _userRepository.GetMemberDtosAsync();
+            var users = await _userRepository.GetMemberDtosAsync(userParams);
 
-            var userToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
+            Response.AddpaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
 
-            return Ok(userToReturn);
+            return Ok(users);
         }
 
         //api/users/1
