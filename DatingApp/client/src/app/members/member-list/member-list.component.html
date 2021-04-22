@@ -7,17 +7,17 @@
     <form #form="ngForm" class="form-inline mb-3" (ngSubmit)="loadMembers()" autocomplete="off">
         <div class="form-group">
             <label>Age from: </label>
-            <input type="number" class="form-control ml-1" style="width: 90px;" name="minAge" [(ngModel)]="userParams.minAge">
+            <input type="number" class="form-control ml-1" style="width: 80px;" name="minAge" [(ngModel)]="userParams.minAge">
         </div>
 
         <div class="form-group px-2">
             <label>Age from: </label>
-            <input type="number" class="form-control ml-1" style="width: 90px;" name="maxAge" [(ngModel)]="userParams.maxAge">
+            <input type="number" class="form-control ml-1" style="width: 80px;" name="maxAge" [(ngModel)]="userParams.maxAge">
         </div>
 
         <div class="form-group px-2">
             <label>Show: </label>
-            <select name="gender" style="width: 130px;" [(ngModel)]="userParams.gender" class="form-control ml-1">
+            <select name="gender" [(ngModel)]="userParams.gender" class="form-control ml-1">
                 <option *ngFor="let gender of genderList" [value]="gender.value">
                     {{gender.display}}
                 </option>
