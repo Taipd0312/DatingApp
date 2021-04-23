@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using API.Extensions;
 
 namespace API.Entities
 {
@@ -23,5 +22,7 @@ namespace API.Entities
         public ICollection<Photo> Photos { get; set; }
         public ICollection<UserLike> LikedByUsers { get; set; }
         public ICollection<UserLike> LikeUsers { get; set; }
+        public ICollection<Message> MessagesSent { get; set; }
+        public ICollection<Message> MessagesReceived { get; set; }
     }
 }
