@@ -2,6 +2,7 @@ using API.Data;
 using API.Helpers;
 using API.Interfaces;
 using API.Services;
+using DatingApp.API.Data;
 using DatingApp.API.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,8 @@ namespace API.Extensions
             services.AddScoped<ITokenService, TokenService>();
 
             services.AddScoped<IPhotoService, PhotoService>();
+
+            services.AddScoped<ILikeRepository, LikeRepository>();
 
             services.AddScoped<LogUserActivity>();
 
