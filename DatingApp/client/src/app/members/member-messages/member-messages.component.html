@@ -1,16 +1,16 @@
 <div class="card">
     <div class="card-body">
         <div *ngIf="messages?.length === 0">
-            No messages yet... say hi by using the message below
+            No messages yet... say hi by using the message box below
         </div>
 
-        <ul *ngIf="messages?.length > 0">
+        <ul *ngIf="messages?.length > 0" class="chat">
             <li *ngFor="let message of messages">
                 <div>
                     <span class="chat-img float-right">
-                        <img src="{{message.senderPhotoUrl}} || './assets/user.png" 
+                        <img src="{{message.senderPhotoUrl || './assets/user.png'}}" 
                             alt="{{message.senderUsername}}" 
-                            class="rouded-circle">
+                            class="rounded-circle">
                     </span>
 
                     <div class="chat-body">
@@ -38,7 +38,7 @@
     <div class="card-footer">
         <form action="">
             <div class="input-group">
-                <input type="text" class="form-control input-sm">
+                <input type="text" class="form-control input-sm" placeholder="Send a private message">
 
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">Send</button>
